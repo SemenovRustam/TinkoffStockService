@@ -1,1 +1,1 @@
-"# TinkoffStockService" 
+# TinkoffStockService
