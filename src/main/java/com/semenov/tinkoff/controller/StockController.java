@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.tinkoff.invest.openapi.model.rest.Candle;
 
 import java.util.List;
 
@@ -53,12 +52,5 @@ public class StockController {
     public ResponseEntity<List<StockPriceDto>> getStocksPricesByFigi(@RequestBody FigiesDto figies) {
         List<StockPriceDto> stocksPrices = stockService.getStocksPrices(figies);
         return new ResponseEntity<>(stocksPrices, HttpStatus.OK);
-    }
-
-    @GetMapping("/stocks/getCandles/{Ticker}")
-    @ApiOperation(value = "Получить свечи акции", notes = "Введите тикер акции, чтоб получить свечи")
-    public ResponseEntity<List<Candle>> getCandlesByTicker(@PathVariable String ticker){
-        List<Candle> candlesByTicker = stockService.getCandlesByTicker(ticker);
-        return new ResponseEntity<>(candlesByTicker, HttpStatus.OK);
     }
 }
